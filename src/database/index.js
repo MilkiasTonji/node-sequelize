@@ -1,16 +1,9 @@
-import * as dotenv from 'dotenv'
-dotenv.config()
 
 import { Sequelize } from "sequelize";
+import { config } from "./config.js";
 
-const DB = process.env.DBNAME
-const USERNAME = process.env.USERNAME
-const PASSWORD = process.env.PASS
-
-console.log(DB, USERNAME, PASSWORD)
-
-const sequelize = new Sequelize(DB, USERNAME, PASSWORD, {
-    host: '127.0.0.1',
+const sequelize = new Sequelize(config.DBNAME, config.USERNAME, config.PASS, {
+    host: 'localhost',
     dialect: 'mysql',
     logging: (...msg) => console.log(msg)
   });

@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv'
+dotenv.config()
+
 
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -22,7 +25,9 @@ DBConnection().then((res)=> {
     if(res.success){
         console.log(res.message)
     }
-    console.error(res.error)
+    else{
+        console.error(res.error)
+    }
 })
 
 app.listen(PORT, ()=> {
